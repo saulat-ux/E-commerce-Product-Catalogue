@@ -38,6 +38,12 @@ const registerUser = asyncHandler(async (req, res) => {
 
   // Generate token and send response
   const token = generateToken(user.id);
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
+  });
   res.status(201).json({
     id: user.id,
     name: user.name,
@@ -79,7 +85,9 @@ const loginUser = asyncHandler(async (req, res) => {
   const token = generateToken(user.id);
   res.cookie("token", token, {
     httpOnly: true,
-    expires: new Date(Date.now() + 1000 * 86400), // 1 day
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
   });
 
   res.status(200).json({

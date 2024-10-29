@@ -4,27 +4,45 @@ const User = require("../models/userModel"); // Ensure this points to your Seque
 
 // Protect Middleware
 const protect = expressAsyncHandler(async (req, res, next) => {
-  const token = req.cookies.token;
+  let token;
+
+  // Check if token is in Authorization header
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    token = req.headers.authorization.split(" ")[1];
+  }
+  // Otherwise, check if token is in cookies
+  else if (req.cookies.token) {
+    token = req.cookies.token;
+  }
+
   if (!token) {
     res.status(401);
-    throw new Error("Not authorized, please login");
+    throw new Error("Not authorized, no token");
   }
 
-  // Verify the token
-  const verified = jwt.verify(token, process.env.JWT_SECRET);
+  try {
+    // Verify the token
+    const verified = jwt.verify(token, process.env.JWT_SECRET);
 
-  // Get user by ID from the token
-  const user = await User.findByPk(verified.id, {
-    attributes: { exclude: ["password"] },
-  });
+    // Get user by ID from the token
+    const user = await User.findByPk(verified.id, {
+      attributes: { exclude: ["password"] },
+    });
 
-  if (!user) {
+    if (!user) {
+      res.status(401);
+      throw new Error("User not found");
+    }
+
+    req.user = user; // Add user to req for next middleware
+    next();
+  } catch (error) {
     res.status(401);
-    throw new Error("User not found");
+    throw new Error("Not authorized, token failed");
   }
-
-  req.user = user; // Add user to req for next middleware
-  next();
 });
 
 // Admin Only Middleware

@@ -1,23 +1,16 @@
 const express = require("express");
 const {
   createCart,
-  deleteCARTProducts,
   getCartProducts,
-  getSingleCartProduct,
+  deleteCARTProducts,
 } = require("../controllers/cartController");
+const { protect } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-// Create a cart item
-router.post("/", createCart);
-
-// Get all cart items
-router.get("/", getCartProducts);
-
-// Get a single cart item by ID (optional)
-router.get("/:id", getSingleCartProduct);
-
-// Delete a cart item by ID
-router.delete("/:id", deleteCARTProducts);
+// Protect all routes with the `protect` middleware
+router.post("/", protect, createCart);
+router.get("/", protect, getCartProducts);
+router.delete("/:id", protect, deleteCARTProducts);
 
 module.exports = router;

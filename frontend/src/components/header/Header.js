@@ -43,7 +43,7 @@ const Header = () => {
     fetchData();
   }, []);
 
-  const len = cartData.length;
+  let len = cartData.length;
 
   const [showMenu, setShowMenu] = useState(false);
   const [scrollPage, setScrollPage] = useState(false);
@@ -73,11 +73,13 @@ const Header = () => {
 
   const cart = (
     <span className={styles.cart}>
-      <Link to="/cart">
-        Cart
-        <FaShoppingCart size={20} />
-        <p>{len}</p>
-      </Link>
+      <ShowOnLogin>
+        <Link to="/cart">
+          Cart
+          <FaShoppingCart size={20} />
+          <p>{len}</p>
+        </Link>
+      </ShowOnLogin>
     </span>
   );
   return (

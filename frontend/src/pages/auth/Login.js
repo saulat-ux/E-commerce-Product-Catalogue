@@ -29,6 +29,7 @@ const Login = () => {
     };
 
     await dispatch(login(userData));
+    window.location.reload();
   };
   useEffect(() => {
     if (isSuccess && isLoggedIn) {

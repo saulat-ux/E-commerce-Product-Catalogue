@@ -49,6 +49,7 @@ const Register = () => {
     };
 
     await dispatch(register(userData));
+    window.location.reload();
   };
 
   useEffect(() => {

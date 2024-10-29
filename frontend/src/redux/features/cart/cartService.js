@@ -1,30 +1,50 @@
 import axios from "axios";
 
 // const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-
 const BACKEND_URL = "http://localhost:5000/";
 
 export const API_URL = `${BACKEND_URL}api/v1/cart/`;
 
-console.log(API_URL);
+// Log API URL for debugging
+console.log("API_URL:", API_URL);
 
-// send product to backend
+// Send product to backend
 const sendProductToCart = async (cartData) => {
-  const response = await axios.post(API_URL, cartData);
-  console.log(response.data);
-  return response.data;
+  try {
+    const response = await axios.post(API_URL, cartData, {
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error adding product to cart:", error);
+    throw error;
+  }
 };
 
-// delete product from cart
+// Delete product from cart
 const deleteProductFromCart = async (id) => {
-  const response = await axios.delete(API_URL + id);
-  return response.data;
+  try {
+    const response = await axios.delete(`${API_URL}${id}`, {
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error deleting product from cart:", error);
+    throw error;
+  }
 };
 
-// get all cart products
+// Get all cart products
 const getAllCartProducts = async () => {
-  const response = await axios.get(API_URL);
-  return response.data;
+  try {
+    const response = await axios.get(API_URL, {
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error retrieving cart products:", error);
+    throw error;
+  }
 };
 
 const cartService = {

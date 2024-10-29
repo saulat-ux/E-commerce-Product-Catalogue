@@ -1,0 +1,105 @@
+
+  
+  /* Style the table */
+  .table {
+    font-size: larger;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Style table headers */
+  table th {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+  }
+  
+  /* Style table cells */
+  table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Style the action column with delete icon */
+  table td:last-child {
+    cursor: pointer;
+    color: red;
+    font-size: x-large;
+  }
+  .p{
+    font-size: larger;
+    font-weight: 600;
+  }
+  .img{
+    margin-top: 1rem;
+  }
+  
+  /* Hover effect for rows */
+  table tr:hover {
+    background-color: #f0f0f0;
+  }
+  .horizontal{
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
+
+  .underCart{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    // width: 40rem;
+  }
+  .lable{
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    width: 40rem;
+    margin-top: 1rem;
+    
+    align-items: center;
+  }
+  .span{
+    padding: 5px;
+    // font-size:larger;
+    // font-weight: 500;
+    font-size: 1.5rem;
+  }
+  .subTotal{
+    display: flex;
+    justify-content: space-between;
+  }
+  .theBtn{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    padding: 5px 165px;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+  
+  background: #ff4500;
+  color: #fff;
+  
+  }
+  .theBtn2{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    padding: 5px 20px;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+  
+  background: #ff4500;
+  color: #fff;
+  
+  }

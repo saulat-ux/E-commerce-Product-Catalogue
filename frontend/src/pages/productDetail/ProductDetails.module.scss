@@ -1,0 +1,146 @@
+// Base styles
+.productDetails {
+  display: flex;
+  gap: 4rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.imageW {
+  flex: 1 1 40%;
+  max-width: 500px;
+}
+
+.theimg {
+  width: 100%;
+  height: auto;
+  border-radius: 50px;
+}
+
+.product-details {
+  flex: 1 1 55%;
+  padding: 1rem;
+}
+
+.arrange {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem 0;
+}
+
+.theBTN {
+  padding: 0.8rem 1.5rem;
+  margin: 0.5rem 0;
+  background-color: #3c4c85;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: background-color 0.3s;
+}
+
+.theBTN:hover {
+  background-color: #e66a1a;
+}
+
+.btnST {
+  display: flex;
+  gap: 5rem;
+}
+
+.horizontal {
+  border-bottom: 1px solid #ddd;
+  margin: 0.5rem 0;
+}
+
+.ul {
+  padding-left: 1.5rem;
+}
+
+// Responsive styles
+@media (max-width: 1024px) {
+  .productDetails {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imageW {
+    flex: 1 1 100%;
+    max-width: 400px;
+  }
+
+  .product-details {
+    flex: 1 1 100%;
+    max-width: 600px;
+  }
+
+  .theBTN {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .productDetails {
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .theimg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .product-details {
+    padding: 0.5rem;
+  }
+
+  .arrange {
+    font-size: 1rem;
+  }
+
+  .theBTN {
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .productDetails {
+    gap: 0.5rem;
+    padding: 0.2rem;
+  }
+
+  .theimg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .arrange {
+    font-size: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .theBTN {
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    font-size: 1.1rem; // Larger font size for mobile screens
+  }
+
+  .btnST {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem; // Increased gap between buttons
+  }
+
+  .ul {
+    padding-left: 1rem;
+  }
+
+  .product-details h3,
+  .product-details h4 {
+    font-size: 1.2rem; // Larger text for titles
+  }
+}

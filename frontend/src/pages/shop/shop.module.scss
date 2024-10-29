@@ -1,0 +1,40 @@
+.main {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); // Three items per row for larger screens
+  gap: 2rem;
+  margin: 2rem;
+  margin-top: 1rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .main {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); // Two items per row on medium screens
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr; // Single item per row on smaller screens
+    gap: 1rem;
+    margin: 1rem;
+  }
+}

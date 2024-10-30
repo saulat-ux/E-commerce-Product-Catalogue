@@ -1,22 +1,52 @@
-# Main Title
+How to Run the Project
+Installation Instructions
+Prerequisites
+Some introductory text: Make sure you have the following installed on your machine.
 
-## Subtitle or Section
+Node.js: v14 or higher recommended
+PostgreSQL: For database setup
+Step-by-Step Guide
+Some introductory text: Follow these steps to set up and run the project on your local machine.
 
-### Smaller Section
+Clone the Repository: Run the following command to clone the repository.
 
-Some introductory text or paragraph. You can add more lines as needed, and separate them with a line break for readability.
+git clone https://github.com/your-username/E-commerce-Product-Catalogue.git
+cd E-commerce-Product-Catalogue
 
-- **Bold text**: `**Bold text**`
-- *Italic text*: `*Italic text*`
-- Lists can be added with hyphens or asterisks:
-  - List item 1
-  - List item 2
-  - List item 3
+Install Dependencies: Install dependencies for both backend and frontend.
 
-#### Code Block
+Backend:
+cd backend
+npm install
 
-To add code blocks, use three backticks:
+Frontend:
+cd ../frontend
+npm install
 
-```javascript
-const example = "This is an example of a code block.";
-console.log(example);
+Environment Variables
+Some introductory text: To configure the environment variables, create a .env file in the backend directory. Add the following:
+
+PORT=5000
+DB_HOST=localhost
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
+DB_NAME=ECommerce_DB
+JWT_SECRET=your_jwt_secret
+
+Code Block
+To set up the database and start the servers, use the following commands.
+
+Set up the Database:
+
+cd backend
+npx sequelize-cli db
+
+Start the Backend:
+npm start
+
+Start the Frontend:
+cd ../frontend
+npm start
+
+Additional Note
+Note: The backend server will be running at http://localhost:5000, and the frontend at http://localhost:3000.

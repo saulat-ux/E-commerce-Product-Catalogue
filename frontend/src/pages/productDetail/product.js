@@ -24,6 +24,7 @@ const Product = ({
     };
 
     await dispatch(sendProductToCart(cartData));
+    window.location.reload();
   };
   return (
     <div>

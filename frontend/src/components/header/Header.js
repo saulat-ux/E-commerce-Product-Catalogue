@@ -68,18 +68,17 @@ const Header = () => {
   const logoutUser = async () => {
     await dispatch(logout());
     await dispatch(RESET_AUTH());
+    window.location.reload();
     navigate("/login");
   };
 
   const cart = (
     <span className={styles.cart}>
-      <ShowOnLogin>
-        <Link to="/cart">
-          Cart
-          <FaShoppingCart size={20} />
-          <p>{len}</p>
-        </Link>
-      </ShowOnLogin>
+      <Link to="/cart">
+        Cart
+        <FaShoppingCart size={20} />
+        <p>{len}</p>
+      </Link>
     </span>
   );
   return (
